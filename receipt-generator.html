@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receipt Generator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 10px;
+    }
+
+    .box {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .food-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f0f4ff;
+      border: 1px solid #c9d6ff;
+      padding: 14px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      color: #1f2937;
+    }
+
+    .food-option input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      accent-color: #1d4ed8;
+    }
+
+    .food-option .price {
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    #generateReceipt {
+      background: #1d4ed8;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .receipt {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      background: #fafafa;
+      padding: 15px;
+    }
+
+    .receipt ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .receipt li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .totals {
+      margin-top: 15px;
+      line-height: 1.8;
+      font-weight: bold;
+    }
+
+    .totals span {
+      float: right;
+    }
+
+    @media (max-width: 600px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    
+  </style>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css"/>
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">Final Project</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="sku-generator.html">SKU</a>
+        <a href="receipt-generator.html">Receipt</a>
+      </nav>
+    </div>
+
+    <div class="box">
+      <h1>Receipt Generator</h1>
+
+      <div class="menu">
+        <label class="food-option">
+          <input id="Cheese Burger" class="menu-item" type="checkbox" value="75" data-name="Cheese Burger" data-price="75">
+          <span>Cheese Burger</span><span class="price">₱75.00</span>
+        </label>
+        <label class="food-option">
+          <input id="Fries" class="menu-item" type="checkbox" value="45" data-name="Fries" data-price="45">
+          <span>Fries</span><span class="price">₱45.00</span>
+        </label>
+        <label class="food-option">
+          <input id="Cheese Pizza Slice" class="menu-item" type="checkbox" value="120" data-name="Cheese Pizza Slice" data-price="120">
+          <span>Cheese Pizza Slice</span><span class="price">₱120.00</span>
+        </label>
+        <label class="food-option">
+          <input id="Coca Cola" class="menu-item" type="checkbox" value="35" data-name="Coca Cola" data-price="35">
+          <span>Coca Cola</span><span class="price">₱35.00</span>
+        </label>
+        <label class="food-option">
+          <input id="Water" class="menu-item" type="checkbox" value="20" data-name="Water" data-price="20">
+          <span>Water</span><span class="price">₱20.00</span>
+        </label>
+      </div>
+      <button id="generateReceipt" type="button" py-click="create_order">Generate receipt</button>
+
+      <div class="receipt" id="show">
+        <h2>Receipt</h2>
+        <ul id="itemList">
+          <li><span>No items yet</span><span>₱0.00</span></li>
+        </ul>
+
+        <div class="totals">
+          <div>Subtotal <span id="subtotal">₱0.00</span></div>
+          <div>VAT (12%) <span id="vat">₱0.00</span></div>
+          <div>Total <span id="total">₱0.00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="py" src="main.py"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
