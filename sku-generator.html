@@ -86,7 +86,7 @@
   <div class="container">
     <div class="topbar">
       <div class="brand">Final Project</div>
-      <nav>
+      <nav> # navbar so its easier to get to each link.
         <a href="index.html">Home</a>
         <a href="sku-generator.html">SKU</a>
         <a href="receipt-generator.html">Receipt</a>
@@ -97,7 +97,7 @@
       <h1>SKU Generator</h1>
 
       <form id="skuForm" py-submit="SKU_generator" onsubmit="return false;">
-        <label for="category">Category</label>
+        <label for="category">Category</label> # lets you choose the type of category
         <select id="category">
           <option value="EL">Electronics</option>
           <option value="CL">Clothes</option>
@@ -106,16 +106,16 @@
           <option value="OT">Other</option>
         </select>
 
-        <label for="product_name">Product name</label>
+        <label for="product_name">Product name</label> # insert product name (any) here
         <input id="product_name" type="text" placeholder="Example: Coffee Mug" required>
 
-        <label for="quantity">Quantity</label>
+        <label for="quantity">Quantity</label> # put the number of the product here
         <input id="quantity" type="number" min="1" value="10" required>
 
         <button type="button" py-click="SKU_generator">Generate</button>
       </form>
 
-      <div class="output" id="sku_output">SKU will show here</div>
+      <div class="output" id="sku_output">SKU will show here</div> # sku will be generated here
     </div>
   </div>
 
